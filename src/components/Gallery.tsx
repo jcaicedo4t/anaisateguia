@@ -267,10 +267,10 @@ export default function Gallery() {
                       
                       {/* Decoración */}
                       <div className="absolute top-4 left-4 text-6xl text-pink-400/10 group-hover:text-pink-400/20 transition-colors duration-300">
-                        "
+                        &quot;
                       </div>
                       <div className="absolute bottom-4 right-4 text-6xl text-indigo-400/10 group-hover:text-indigo-400/20 transition-colors duration-300 rotate-180">
-                        "
+                        &quot;
                       </div>
                     </div>
                   </div>
