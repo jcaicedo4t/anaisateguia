@@ -21,12 +21,12 @@ const Paquete = ({ minutos, precio, caracteristicas, popular = false, index }: P
 
   return (
     <div 
-      className={`relative bg-gradient-to-br from-indigo-900/30 via-purple-900/20 to-pink-900/30 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border transition-all duration-500 transform ${
+      className={`relative bg-white/90 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border transition-all duration-500 transform ${
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       } ${
         popular 
-          ? 'border-pink-400/50 shadow-pink-500/25 scale-105' 
-          : 'border-indigo-200/20 hover:border-indigo-300/40'
+          ? 'border-pink-400/50 shadow-pink-500/25 scale-105 bg-gradient-to-br from-pink-50/95 to-purple-50/95' 
+          : 'border-purple-200/50 hover:border-purple-300/60 hover:shadow-purple-500/20'
       } ${
         isHovered ? 'scale-105 shadow-3xl' : ''
       }`}
@@ -42,20 +42,20 @@ const Paquete = ({ minutos, precio, caracteristicas, popular = false, index }: P
       )}
       
       <div className="text-center mb-6">
-        <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 to-pink-200 mb-2">
+        <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-2">
           {minutos} Minutos
         </h3>
         <div className="flex items-center justify-center gap-2">
-          <span className="text-4xl font-bold text-white">${precio}</span>
-          <span className="text-indigo-300 text-lg">USD</span>
+          <span className="text-4xl font-bold text-gray-800">${precio}</span>
+          <span className="text-purple-600 text-lg">USD</span>
         </div>
       </div>
       
       <ul className="space-y-3 mb-8">
         {caracteristicas.map((caracteristica, idx) => (
-          <li key={idx} className="text-indigo-100 flex items-center gap-3 group">
-            <span className="text-pink-400 group-hover:scale-110 transition-transform duration-200">✨</span>
-            <span className="group-hover:text-white transition-colors duration-200">{caracteristica}</span>
+          <li key={idx} className="text-gray-700 flex items-center gap-3 group">
+            <span className="text-pink-500 group-hover:scale-110 transition-transform duration-200">✨</span>
+            <span className="group-hover:text-purple-700 transition-colors duration-200">{caracteristica}</span>
           </li>
         ))}
       </ul>
@@ -85,18 +85,18 @@ export default function Hero() {
   const paquetes = [
     {
       minutos: 15,
-      precio: 25,
+      precio: 10,
       caracteristicas: [
         "Consulta rápida",
         "1 pregunta específica",
-        "Lectura de cartas",
+        "Lectura ancestral",
         "Orientación inmediata"
       ],
       index: 0
     },
     {
       minutos: 30,
-      precio: 45,
+      precio: 18,
       caracteristicas: [
         "Consulta completa",
         "Múltiples preguntas",
@@ -109,7 +109,7 @@ export default function Hero() {
     },
     {
       minutos: 60,
-      precio: 80,
+      precio: 32,
       caracteristicas: [
         "Sesión profunda",
         "Análisis completo",
@@ -122,7 +122,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-black flex items-center justify-center px-4 py-20 overflow-hidden">
+    <section className="relative min-h-screen bg-gradient-to-br from-rose-50 via-purple-50 to-blue-50 flex items-center justify-center px-4 py-20 overflow-hidden">
 
 
 
@@ -133,11 +133,11 @@ export default function Hero() {
         }`}>
           <div className="relative mb-8">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 relative">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-pink-200 to-purple-200 animate-pulse">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-rose-500 to-indigo-600 animate-pulse">
                 ✨ Hola, soy Anaisa
               </span>
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-indigo-300 to-pink-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-rose-600 via-purple-600 to-rose-600">
                 Te Guía
               </span>
             </h1>
@@ -146,24 +146,24 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-pulse"></div>
           </div>
           
-          <p className={`text-xl md:text-2xl text-indigo-200 max-w-4xl mx-auto leading-relaxed mb-8 transition-all duration-1000 delay-300 transform ${
+          <p className={`text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed mb-8 transition-all duration-1000 delay-300 transform ${
             isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}>
-            Descubre tu camino con lecturas de tarot personalizadas. 
+            Descubre tu camino a través de la conexión con los ancestros espirituales. 
             Te ayudo a encontrar claridad en el amor, trabajo y vida espiritual.
           </p>
           
-          <div className={`flex flex-wrap justify-center gap-6 text-indigo-300 transition-all duration-1000 delay-500 transform ${
+          <div className={`flex flex-wrap justify-center gap-6 text-gray-600 transition-all duration-1000 delay-500 transform ${
             isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}>
-            <span className="flex items-center gap-2 bg-indigo-900/30 px-4 py-2 rounded-full backdrop-blur-sm">
-              <span className="text-pink-400">🔮</span> Tarot Profesional
+            <span className="flex items-center gap-2 bg-white/70 px-4 py-2 rounded-full backdrop-blur-sm border border-purple-200/50 shadow-sm">
+              <span className="text-pink-500">🔮</span> Conexión Ancestral
             </span>
-            <span className="flex items-center gap-2 bg-indigo-900/30 px-4 py-2 rounded-full backdrop-blur-sm">
-              <span className="text-pink-400">⭐</span> +5 años experiencia
+            <span className="flex items-center gap-2 bg-white/70 px-4 py-2 rounded-full backdrop-blur-sm border border-purple-200/50 shadow-sm">
+              <span className="text-pink-500">⭐</span> +5 años experiencia
             </span>
-            <span className="flex items-center gap-2 bg-indigo-900/30 px-4 py-2 rounded-full backdrop-blur-sm">
-              <span className="text-pink-400">💫</span> Consultas 24/7
+            <span className="flex items-center gap-2 bg-white/70 px-4 py-2 rounded-full backdrop-blur-sm border border-purple-200/50 shadow-sm">
+              <span className="text-pink-500">💫</span> Consultas 24/7
             </span>
           </div>
         </div>
@@ -184,18 +184,18 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
           </button>
           
-          <div className="flex flex-wrap justify-center gap-8 text-indigo-300">
+          <div className="flex flex-wrap justify-center gap-8 text-gray-600">
             <span className="flex items-center gap-2">
-              <span className="text-green-400">✓</span> Disponible 24/7
+              <span className="text-green-500">✓</span> Disponible 24/7
             </span>
             <span className="flex items-center gap-2">
-              <span className="text-green-400">✓</span> Respuesta inmediata
+              <span className="text-green-500">✓</span> Respuesta inmediata
             </span>
             <span className="flex items-center gap-2">
-              <span className="text-green-400">✓</span> 100% confidencial
+              <span className="text-green-500">✓</span> 100% confidencial
             </span>
             <span className="flex items-center gap-2">
-              <span className="text-green-400">✓</span> Satisfacción garantizada
+              <span className="text-green-500">✓</span> Satisfacción garantizada
             </span>
           </div>
         </div>
