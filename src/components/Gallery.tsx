@@ -132,24 +132,7 @@ export default function Gallery() {
   ];
 
   return (
-    <section className="relative py-24 bg-gradient-to-b from-black via-indigo-950/50 to-black overflow-hidden">
-      {/* Partículas de fondo */}
-      <div className="absolute inset-0">
-        {[...Array(15)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 4}s`,
-              animationDuration: `${4 + Math.random() * 3}s`
-            }}
-          >
-            <span className="text-indigo-400/20 text-xl">✨</span>
-          </div>
-        ))}
-      </div>
+    <section className="relative py-24 bg-black overflow-hidden">
 
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <div className={`text-center mb-20 transition-all duration-1000 transform ${

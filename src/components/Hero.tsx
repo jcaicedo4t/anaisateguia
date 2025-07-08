@@ -122,24 +122,7 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-black via-indigo-950 to-black flex items-center justify-center px-4 py-20 overflow-hidden">
-      {/* Partículas flotantes */}
-      <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${3 + Math.random() * 4}s`
-            }}
-          >
-            <span className="text-pink-400/30 text-2xl">✨</span>
-          </div>
-        ))}
-      </div>
+    <section className="relative min-h-screen bg-black flex items-center justify-center px-4 py-20 overflow-hidden">
 
 
 

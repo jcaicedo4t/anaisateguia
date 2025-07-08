@@ -17,9 +17,9 @@ export default function Header() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-gradient-to-r from-indigo-900/98 to-pink-900/98 backdrop-blur-xl shadow-2xl shadow-indigo-500/20' 
-        : 'bg-gradient-to-r from-indigo-900/80 to-pink-900/80 backdrop-blur-md'
-    } border-b border-indigo-300/20`}>
+        ? 'bg-black/98 backdrop-blur-xl shadow-2xl' 
+        : 'bg-black/80 backdrop-blur-md'
+    } border-b border-gray-800`}>
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-200 hover:scale-105 transition-transform duration-300 cursor-pointer">
