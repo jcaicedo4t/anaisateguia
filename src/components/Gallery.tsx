@@ -252,7 +252,7 @@ export default function Gallery() {
                       
                       {/* Texto del testimonio */}
                       <blockquote className="text-indigo-100 text-lg leading-relaxed mb-6 italic text-center group-hover:text-white transition-colors duration-300">
-                        "{testimonial.text}"
+                        &quot;{testimonial.text}&quot;
                       </blockquote>
                       
                       {/* Información del cliente */}
