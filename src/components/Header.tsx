@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import CartIcon from './CartIcon';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,10 +23,12 @@ export default function Header() {
     } border-b border-rose-200`}>
       <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-lg sm:text-xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-rose-500 to-indigo-600 hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0">
-            <span className="hidden sm:inline">✨ Anaisa Te Guía</span>
-            <span className="sm:hidden">✨ Anaisa</span>
-          </h1>
+          <a href="/" className="no-underline">
+            <h1 className="text-lg sm:text-xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-rose-500 to-indigo-600 hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0">
+              <span className="hidden sm:inline">✨ Anaisa Te Guía</span>
+              <span className="sm:hidden">✨ Anaisa</span>
+            </h1>
+          </a>
           
           <nav className="hidden lg:flex space-x-6 xl:space-x-8">
             <a href="#servicios" className="relative text-gray-600 hover:text-rose-500 transition-all duration-300 group">
@@ -50,6 +53,10 @@ export default function Header() {
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </button>
+            
+            <div className="hidden sm:block">
+              <CartIcon />
+            </div>
             
             <button 
               className="lg:hidden text-gray-600 hover:text-rose-500 transition-colors p-2 rounded-lg hover:bg-gray-100"
@@ -98,7 +105,7 @@ export default function Header() {
             </a>
             
             {/* Botón de reserva en móvil */}
-            <div className="pt-4 border-t border-rose-200 mt-4">
+            <div className="pt-4 border-t border-rose-200 mt-4 space-y-3">
               <button 
                 className="w-full bg-gradient-to-r from-rose-400 via-purple-400 to-indigo-400 text-white px-6 py-3 rounded-full hover:from-rose-500 hover:via-purple-500 hover:to-indigo-500 transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-rose-500/25 group overflow-hidden font-semibold"
                 onClick={() => setIsMobileMenuOpen(false)}
@@ -109,6 +116,17 @@ export default function Header() {
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
+              
+              <a 
+                href="/checkout" 
+                className="flex items-center justify-center gap-2 w-full bg-white text-purple-600 border border-purple-200 px-6 py-3 rounded-full hover:bg-purple-50 transition-all duration-300 font-semibold"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                Ver Carrito
+              </a>
             </div>
           </nav>
         </div>

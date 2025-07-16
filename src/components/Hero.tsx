@@ -1,8 +1,10 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useCart } from '../context/CartContext';
 
 interface PaqueteProps {
+  id: string;
   minutos: number;
   precio: number;
   caracteristicas: string[];
@@ -10,14 +12,25 @@ interface PaqueteProps {
   index: number;
 }
 
-const Paquete = ({ minutos, precio, caracteristicas, popular = false, index }: PaqueteProps) => {
+const Paquete = ({ id, minutos, precio, caracteristicas, popular = false, index }: PaqueteProps) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), index * 200);
     return () => clearTimeout(timer);
   }, [index]);
+  
+  const handleSelectPackage = () => {
+    addToCart({
+      id,
+      name: `Consulta ${minutos} Minutos`,
+      price: precio,
+      description: caracteristicas.join(', ')
+    });
+    window.location.href = '/checkout';
+  };
 
   return (
     <div 
@@ -66,7 +79,7 @@ const Paquete = ({ minutos, precio, caracteristicas, popular = false, index }: P
             ? 'bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white shadow-lg hover:shadow-pink-500/25'
             : 'bg-gradient-to-r from-indigo-500 to-purple-500 text-white hover:from-indigo-600 hover:to-purple-600'
         }`}
-        onClick={() => alert('Función de reserva en desarrollo')}
+        onClick={handleSelectPackage}
       >
         <span className="relative z-10">Seleccionar Paquete</span>
         <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -84,6 +97,7 @@ export default function Hero() {
 
   const paquetes = [
     {
+      id: 'paquete-15',
       minutos: 15,
       precio: 10,
       caracteristicas: [
@@ -95,6 +109,7 @@ export default function Hero() {
       index: 0
     },
     {
+      id: 'paquete-30',
       minutos: 30,
       precio: 18,
       caracteristicas: [
@@ -108,6 +123,7 @@ export default function Hero() {
       index: 1
     },
     {
+      id: 'paquete-60',
       minutos: 60,
       precio: 32,
       caracteristicas: [
@@ -132,7 +148,7 @@ export default function Hero() {
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-12 opacity-0'
         }`}>
           <div className="relative mb-8">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 relative">
+            <h1 className=" mt-10 text-6xl md:text-8xl lg:text-9xl font-bold mb-6 relative">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-rose-500 to-indigo-600 animate-pulse">
                 ✨ Hola, soy Anaisa
               </span>
@@ -179,7 +195,10 @@ export default function Hero() {
         <div className={`text-center transition-all duration-1000 delay-700 transform ${
           isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}>
-          <button className="group relative bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white px-12 py-5 rounded-2xl text-xl font-bold hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-pink-500/25 mb-6">
+          <button 
+            className="group relative bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-white px-12 py-5 rounded-2xl text-xl font-bold hover:from-pink-600 hover:via-purple-600 hover:to-indigo-600 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-pink-500/25 mb-6"
+            onClick={() => window.location.href = '/checkout'}
+          >
             <span className="relative z-10">🌟 Reservar Mi Consulta Ahora</span>
             <div className="absolute inset-0 bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
           </button>
