@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import CartIcon from './CartIcon';
 
 export default function Header() {
@@ -23,12 +24,12 @@ export default function Header() {
     } border-b border-rose-200`}>
       <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4">
         <div className="flex items-center justify-between">
-          <a href="/" className="no-underline">
+          <Link href="/" className="no-underline">
             <h1 className="text-lg sm:text-xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-rose-500 to-indigo-600 hover:scale-105 transition-transform duration-300 cursor-pointer flex-shrink-0">
               <span className="hidden sm:inline">✨ Anaisa Te Guía</span>
               <span className="sm:hidden">✨ Anaisa</span>
             </h1>
-          </a>
+          </Link>
           
           <nav className="hidden lg:flex space-x-6 xl:space-x-8">
             <a href="#servicios" className="relative text-gray-600 hover:text-rose-500 transition-all duration-300 group">

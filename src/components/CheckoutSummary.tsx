@@ -4,14 +4,6 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '../context/CartContext';
 
-interface CartItem {
-  id: string;
-  name: string;
-  price: number;
-  quantity: number;
-  description: string;
-}
-
 export default function CheckoutSummary() {
   const [isLoaded, setIsLoaded] = useState(false);
   const { cartItems, updateQuantity, removeFromCart, subtotal, discount, total } = useCart();

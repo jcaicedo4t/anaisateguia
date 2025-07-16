@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 // Función para obtener la miniatura de TikTok usando oEmbed API
 const getTikTokThumbnail = async (url: string): Promise<string | null> => {
@@ -104,10 +105,11 @@ const VideoCard = ({ video, index }: { video: VideoProps; index: number }) => {
           {/* Miniatura de TikTok o placeholder */}
           {thumbnail && !thumbnailLoading ? (
             <>
-              <img 
+              <Image 
                 src={thumbnail} 
                 alt={video.title}
-                className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                fill
+                className="absolute inset-0 object-cover rounded-2xl"
                 onError={() => setThumbnail(null)}
               />
               {/* Overlay con efecto de hover */}

@@ -37,7 +37,7 @@ interface CartProviderProps {
 
 export function CartProvider({ children }: CartProviderProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [discount, setDiscount] = useState(0);
+  const [discount] = useState(0);
   
   // Cargar carrito desde localStorage al iniciar
   useEffect(() => {
