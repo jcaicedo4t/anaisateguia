@@ -14,13 +14,17 @@ export default function Checkout() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-rose-50 via-purple-50 to-blue-50">
+    <div className="min-h-screen bg-background">
       <Header />
       <main className="pt-32 pb-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h1 className={`text-4xl md:text-5xl font-bold mb-10 text-center text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-rose-500 to-indigo-600 transition-all duration-1000 transform ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            Finalizar Compra
-          </h1>
+          {/* Header */}
+          <div className={`text-center mb-12 transition-all duration-1000 transform ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+            <p className="text-gold/60 text-sm tracking-[0.4em] uppercase mb-4 font-serif">Reserva tu consulta</p>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold">
+              <span className="shimmer-gold">Finalizar Compra</span>
+            </h1>
+          </div>
           
           <div className="grid md:grid-cols-2 gap-8">
             <CheckoutSummary />
